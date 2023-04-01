@@ -1,3 +1,7 @@
+---
+title: Solution to Lab: SQL injection vulnerability in WHERE clause allowing retrieval of hidden data 
+---
+
 The following is a solution to the lab titled "Lab: SQL injection vulnerability in WHERE clause allowing retrieval of hidden data".
 
 Access the lab. From the Home page, navigate to one of the shop categories. (For this solution, the category is Accessories.)
