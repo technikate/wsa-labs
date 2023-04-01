@@ -1,5 +1,6 @@
 ---
-title: Solution to Lab: SQL injection vulnerability in WHERE clause allowing retrieval of hidden data 
+title: >
+  Solution to Lab: SQL injection vulnerability in WHERE clause allowing retrieval of hidden data
 ---
 
 The following is a solution to the lab titled "Lab: SQL injection vulnerability in WHERE clause allowing retrieval of hidden data".
