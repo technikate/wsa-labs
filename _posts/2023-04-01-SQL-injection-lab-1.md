@@ -51,7 +51,7 @@ As a result of this modification, all product information was returned, thus sol
 
 *SQL Note*
 
-The unmodified request (`GET /filter?category=Accessories`) results in the following SQL query:
+Per the lab instructions, the unmodified request (`GET /filter?category=Accessories`) results in the following SQL query:
 
 ~~~
 SELECT * FROM products WHERE category = 'Accessories' AND released = 1
