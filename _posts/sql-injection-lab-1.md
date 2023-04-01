@@ -1,6 +1,6 @@
 The following is a solution to the lab titled "Lab: SQL injection vulnerability in WHERE clause allowing retrieval of hidden data".
 
-Access the lab. From the Home page, navigate to one of the shop categories (in this case, Accessories).
+Access the lab. From the Home page, navigate to one of the shop categories. (For this solution, the category is Accessories.)
 
 In Burp Suite, send the request for the Accessories page to Repeater. The following is the unmodified HTTP request.
 
