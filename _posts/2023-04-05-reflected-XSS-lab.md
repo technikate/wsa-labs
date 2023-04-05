@@ -1,3 +1,8 @@
+---
+title: >
+  Solution to Lab: Reflected XSS into HTML context with nothing encoded
+---
+
 The following is a solution to [Lab: Reflected XSS into HTML context with nothing encoded](https://portswigger.net/web-security/cross-site-scripting/reflected/lab-html-context-nothing-encoded).
 
 In the UI of the lab, enter the following payload into the search bar and click Search:
