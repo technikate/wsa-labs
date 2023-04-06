@@ -9,10 +9,10 @@ In the UI of the lab, enter the following payload into the search bar and click 
 `<script>alert("howdy");</script>`
 
 This step is demonstrated in the screenshot below:
-![A screenshot of the search bar with the alert("howdy"); payload as the search term](/docs/assets/alert()-poc-1.png)
+![A screenshot of the search bar with the alert("howdy"); payload as the search term](/wsa-labs/docs/assets/alert()-poc-1.png)
 
 As a result, an alert box appears in the UI, with the text from the alert() payload. This is demonstrated in the screenshot below:
-![A screenshot of the alert box with the message "howdy"](/docs/assets/alert()-poc-2.png)
+![A screenshot of the alert box with the message "howdy"](/wsa-labs/docs/assets/alert()-poc-2.png)
 
 The HTTP request associated with this action appears below, as pulled from the HTTP history section of the Proxy tab in Burp Suite.
 
