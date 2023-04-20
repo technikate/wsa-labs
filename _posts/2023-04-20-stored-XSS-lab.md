@@ -21,8 +21,6 @@ To see the effects of the alert() function, click Back to blog. The alert box sh
 The HTTP request associated with the action of posting the comment is below, as pulled from the HTTP history section of the Proxy tab in Burp Suite. The URL-encoded JavaScript can be seen at the bottom of the request.
 
 ~~~
-The HTTP request associated with this action appears below, as pulled from the HTTP history section of the Proxy tab in Burp Suite.
-
 POST /post/comment HTTP/2
 Host: 0a3a001b0379440182b5e235007a00ac.web-security-academy.net
 Cookie: [redacted]
