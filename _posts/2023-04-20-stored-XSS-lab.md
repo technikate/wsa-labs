@@ -1,6 +1,6 @@
 ---
 title: >
-  Solution to Lab: Stored XSS into HTML context with nothing encoded
+  Solution to `Stored XSS into HTML context with nothing encoded`
 ---
 
 The following is a solution to [Lab: Stored XSS into HTML context with nothing encoded](https://portswigger.net/web-security/cross-site-scripting/stored/lab-html-context-nothing-encoded).
